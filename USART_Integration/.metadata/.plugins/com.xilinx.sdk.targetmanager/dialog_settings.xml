@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="Module5_sw_system-bitFile" value="${project_loc:Module5_sw}/_ide/bitstream/Module5_hw_wrapper.bit"/>
+	<item key="Module5_sw_system-bmmFile" value=""/>
+	<item key="Module5_sw_system-target" value="Local"/>
+	<item key="Module5_sw_system-device" value="Auto Detect"/>
+	<item key="Module5_sw_system-partial_bit" value="false"/>
+	<item key="Module5_sw_system-skip_rev_check" value="false"/>
+	<item key="programfpga.sdxproject" value="Module5_sw_system"/>
+	<item key="devices_info_Local" value="{&quot;cables&quot;:[{&quot;name&quot;:&quot;Digilent Zybo Z7 210351A6C815A&quot;,&quot;indexContextMap&quot;:{&quot;2&quot;:&quot;jsn-Zybo Z7-210351A6C815A-4ba00477-0&quot;,&quot;3&quot;:&quot;jsn-Zybo Z7-210351A6C815A-13722093-0&quot;}}]}"/>
+</section>

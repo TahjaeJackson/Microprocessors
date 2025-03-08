@@ -1,0 +1,10 @@
+14:50:58 **** Incremental Build of configuration Debug for project Module5_sw_system ****
+make all 
+Generating bif file for the system project
+Executing command '::scw::generate_bif -xpfm /thayerfs/home/f0056cj/workspace/Module5/Module5_hw_wrapper/export/Module5_hw_wrapper/Module5_hw_wrapper.xpfm -domains standalone_ps7_cortexa9_0 -bifpath /thayerfs/home/f0056cj/workspace/Module5/Module5_sw_system/Debug/system.bif' on XSCT
+sdcard_gen --xpfm /thayerfs/home/f0056cj/workspace/Module5/Module5_hw_wrapper/export/Module5_hw_wrapper/Module5_hw_wrapper.xpfm --sys_config Module5_hw_wrapper --bif /thayerfs/home/f0056cj/workspace/Module5/Module5_sw_system/Debug/system.bif --bitstream /thayerfs/home/f0056cj/workspace/Module5/Module5_sw/_ide/bitstream/Module5_hw_wrapper.bit --elf /thayerfs/home/f0056cj/workspace/Module5/Module5_sw/Debug/Module5_sw.elf,ps7_cortexa9_0
+creating BOOT.BIN using /thayerfs/home/f0056cj/workspace/Module5/Module5_sw/_ide/bitstream/Module5_hw_wrapper.bit
+Running /thayerfs/apps/xilinx/Vitis/2021.2/bin/bootgen  -image /thayerfs/home/f0056cj/workspace/Module5/Module5_sw_system/Debug/sd_card_temp/boot.bif -w -o i BOOT.BIN
+
+14:51:06 Build Finished (took 8s.946ms)
+

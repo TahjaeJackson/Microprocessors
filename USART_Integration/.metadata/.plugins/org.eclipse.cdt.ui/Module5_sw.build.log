@@ -1,0 +1,29 @@
+14:53:02 **** Incremental Build of configuration Debug for project Module5_sw ****
+make all 
+make --no-print-directory pre-build
+a9-linaro-pre-build-step
+ 
+make --no-print-directory main-build
+Building file: ../src/adc.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/adc.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/thayerfs/home/f0056cj/workspace/Module5/Module5_hw_wrapper/export/Module5_hw_wrapper/sw/Module5_hw_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/adc.d" -MT"src/adc.o" -o "src/adc.o" "../src/adc.c"
+ERROR: ld.so: object '/usr/${LIB}/nosetxattr.so' from /etc/ld.so.preload cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/${LIB}/nosetxattr.so' from /etc/ld.so.preload cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/${LIB}/nosetxattr.so' from /etc/ld.so.preload cannot be preloaded (cannot open shared object file): ignored.
+Finished building: ../src/adc.c
+ 
+Building file: ../src/servo.c
+Invoking: ARM v7 gcc compiler
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/servo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I/thayerfs/home/f0056cj/workspace/Module5/Module5_hw_wrapper/export/Module5_hw_wrapper/sw/Module5_hw_wrapper/standalone_ps7_cortexa9_0/bspinclude/include -MMD -MP -MF"src/servo.d" -MT"src/servo.o" -o "src/servo.o" "../src/servo.c"
+ERROR: ld.so: object '/usr/${LIB}/nosetxattr.so' from /etc/ld.so.preload cannot be preloaded (cannot open shared object file): ignored.
+ERROR: ld.so: object '/usr/${LIB}/nosetxattr.so' from /etc/ld.so.preload cannot be preloaded (cannot open shared object file): ignored.
+In file included from ../src/servo.c:1:
+../src/servo.h:7:10: fatal error: xtmrctr.h: No such file or directory
+    7 | #include "xtmrctr.h"
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[1]: *** [src/subdir.mk:44: src/servo.o] Error 1
+make: *** [makefile:34: all] Error 2
+
+14:53:02 Build Finished (took 825ms)
+
