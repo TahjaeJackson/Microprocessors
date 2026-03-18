@@ -1,152 +1,118 @@
-# Microprocessors: Traffic Control System on Zynq-7000 (Zybo Z7)
+# Microprocessors on Zynq-7000 (Zybo Z7)
 
 ## Overview
 
-This project implements a **traffic control system** on the **Zybo Z7 (Zynq-7000)** development board. It combines low-level embedded C programming with hardware-software integration to simulate and control traffic light behavior using peripherals such as LEDs, timers, ADCs, and communication interfaces.
+This repository contains a collection of embedded systems projects developed on the **Zybo Z7 (Zynq-7000)** platform. These projects demonstrate core concepts in microprocessor systems, including hardware interfacing, interrupt-driven programming, and real-time control.
 
-The system demonstrates how a processor interacts with hardware components in a real-time environment, making it a practical application of microprocessor systems and embedded design principles.
+The work focuses on building modular, scalable embedded applications that integrate software running on the ARM processor with hardware peripherals on the board.
+
+## Projects
+
+### 1. Traffic Control System
+
+**Location:** `Traffic_Control/`
+
+A real-time embedded system that simulates a traffic light controller using LEDs, switches, and optional sensor input.
+
+#### Key Features
+- State-machine-based traffic light control (Red, Yellow, Green)
+- GPIO-based LED control
+- Button and switch interaction
+- Modular hardware abstraction (LED, ADC, IO)
+- Platform initialization using Zynq processing system
+
+#### Concepts Demonstrated
+- Embedded C programming
+- Hardware abstraction layers
+- Real-time system design
+- Peripheral interfacing (GPIO, ADC)
 
 
-## Objectives
+### 2. Dual UART Interrupt System
 
-- Design a modular embedded system for traffic control
-- Interface with hardware peripherals (GPIO, ADC, timers)
-- Implement real-time control logic in C
-- Integrate multiple software and hardware modules
-- Understand hardware-software co-design using the Zynq platform
+**Location:** `dual_uart_interrupt_system/` *(formerly Module5)*
+
+An interrupt-driven communication system that bridges two UART interfaces and enables real-time data transfer and packet-based messaging.
+
+#### Key Features
+- Dual UART communication (UART0 ↔ UART1)
+- Interrupt-driven receive handling using GIC
+- Structured packet protocol (`ping_t`)
+- Button-triggered events (ping, update, exit)
+- LED feedback for system state
+- Echo and forwarding between UART channels
+
+#### Concepts Demonstrated
+- Interrupt-driven programming
+- Serial communication (UART)
+- Embedded communication protocols
+- Event-driven system design
+- Hardware-software co-design
 
 
-## System Architecture
+## Hardware Platform: Zybo Z7 (Zynq-7000)
 
-The project is organized into modular components that interact through well-defined interfaces:
+All projects run on the **Zybo Z7 development board**, which features the **Xilinx Zynq-7000 SoC**.
 
-Traffic_Control/
+### Key Architecture
+
+- **Processing System (PS):**
+  - Dual-core ARM Cortex-A9
+  - Runs embedded C applications
+
+- **Programmable Logic (PL):**
+  - FPGA fabric for custom hardware design
+
+
+### Onboard Features Used
+
+- UART (serial communication)
+- GPIO (buttons, switches, LEDs)
+- Interrupt controller (GIC)
+- Analog input (XADC, optional)
+
+
+## Repository Structure
+Microprocessors/
 │
-├── main.c # Entry point of the application
-├── platform.c/.h # Platform initialization (Zynq setup)
-├── platform_config.h # Hardware configuration
+├── Traffic_Control/ # Traffic light control system
 │
-├── led.c/.h # LED control (traffic lights)
-├── adc.c/.h # Analog input handling (e.g., sensors)
-├── io.c/.h # General I/O abstraction
-├── servo.c/.h # Servo motor control (optional/extension)
+├── dual_uart_interrupt_system/ # UART + interrupt-based system
 │
-├── gic.c/.h # Interrupt controller (GIC)
+├── USART_Integration/ # (Development workspace / Vitis project files)
 │
-├── lscript.ld # Linker script
-├── Xilinx.spec # Build configuration
-└── README.md
+└── README.md # This file
 
 
----
+## Development Environment
+
+- **Language:** C
+- **Tools:**
+  - Xilinx Vivado (hardware design)
+  - Xilinx Vitis (software development)
+- **Target Platform:** Zybo Z7 (Zynq-7000)
 
 
-## Key Components
+## Learning Outcomes
 
-### 1. Traffic Control Logic (`main.c`)
-- Implements the state machine for traffic lights
-- Controls transitions between:
-  - Red
-  - Yellow
-  - Green
-- May incorporate timing or sensor-based decision-making
+Across these projects, the following skills were developed:
 
----
+- Embedded systems programming in C
+- Interrupt-driven architecture
+- Serial communication (UART)
+- Hardware abstraction and modular design
+- Real-time system behavior
+- Debugging using UART and LEDs
 
-### 2. LED Module (`led.c / led.h`)
-- Controls onboard LEDs representing traffic lights
-- Abstracts GPIO operations
-- Enables clean separation between logic and hardware
 
----
 
-### 3. ADC Module (`adc.c / adc.h`)
-- Reads analog signals (e.g., simulated traffic density)
-- Converts sensor input into usable digital values
-- Can influence traffic timing dynamically
+## Author
 
----
+**Tahjae Jackson**  
+Dartmouth College — Computer Science & Engineering  
 
-### 4. I/O Module (`io.c / io.h`)
-- Handles low-level input/output operations
-- Provides reusable interface for hardware communication
 
----
 
-### 5. Interrupt System (`gic.c / gic.h`)
-- Configures the **Generic Interrupt Controller (GIC)**
-- Enables responsive, event-driven behavior
-- Useful for:
-  - Timers
-  - External signals
-  - Sensor triggers
+## Notes
 
----
-
-### 6. Platform Layer (`platform.c / platform.h`)
-- Initializes hardware and runtime environment
-- Sets up:
-  - UART (for debugging)
-  - Memory
-  - Processor configuration
-
----
-
-## Zybo Z7 Board Overview
-
-The **Zybo Z7** is a development board based on the **Xilinx Zynq-7000 SoC**, which integrates:
-
-### Processing System (PS)
-- Dual-core ARM Cortex-A9 processor
-- Runs embedded C applications
-- Handles high-level control logic
-
-### Programmable Logic (PL)
-- FPGA fabric
-- Enables custom hardware acceleration and digital design
-
----
-
-### Key Features of the Zybo Z7
-
-- ARM + FPGA hybrid architecture
-- Onboard LEDs, switches, and buttons
-- Analog inputs (via XADC)
-- UART for serial communication
-- GPIO interfaces
-- PWM support for motors/servos
-
----
-
-### Why Zybo Z7 for This Project?
-
-- Combines **software flexibility** (ARM CPU) with **hardware control** (FPGA)
-- Ideal for real-time systems like traffic control
-- Supports scalable designs:
-  - Pure software implementation (current project)
-  - Hardware-accelerated extensions (future work)
-
----
-
-## How It Works
-
-1. The system initializes the platform and hardware modules
-2. The traffic controller enters a loop (or interrupt-driven flow)
-3. LEDs simulate traffic lights
-4. Timing or sensor inputs determine state transitions
-5. Optional modules (ADC, servo) enhance realism
-
----
-
-## Build & Run Instructions
-
-### Prerequisites
-- Xilinx Vivado / Vitis installed
-- Zybo Z7 board connected
-
-### Steps
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<your-username>/Microprocessors.git
-   cd Microprocessors/Traffic_Control
+This repository is part of a microprocessors / embedded systems workflow using the Zynq platform and is intended for academic and educational use.
